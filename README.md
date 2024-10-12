@@ -31,3 +31,11 @@ npm i && npm run start
 ## Деплой
 
 Приложение доступно на Vercel: [To-do app](https://to-do-list-beige-chi.vercel.app)
+
+## Демо
+
+![Пустой список](./uploads/app.png)
+
+![Все задачи](./uploads/app2.png)
+
+![Выполненые задачи](./uploads/app3.png)

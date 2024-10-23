@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTodo } from '../context/todoContext';
 import Item from './Item';
+
+const buttonOptions = [
+  { label: 'Все', value: 'all' },
+  { label: 'Выполненные', value: 'done' },
+  { label: 'Невыполненные', value: 'undone' }
+];
 
 const List: React.FC = () => {
   const { tasks, toggleTask } = useTodo();
   const [status, setStatus] = useState<'all' | 'done' | 'undone'>('all');
 
-  const buttonOptions = [
-    { label: 'Все', value: 'all' },
-    { label: 'Выполненные', value: 'done' },
-    { label: 'Невыполненные', value: 'undone' }
-  ];
-
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = useMemo(() => tasks.filter((task) => {
     if (status === 'done') return task.isDone;
     if (status === 'undone') return !task.isDone;
     return true;
-  });
+  }), [status, tasks])
 
   return (<>
     <div className="flex space-x-2">

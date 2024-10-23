@@ -48,7 +48,7 @@ test('toggles task completion on checkbox click', () => {
 });
 
 describe('List component', () => {
-  test('displays all tasks by default', () => {
+  test('check the task status change', () => {
 
     renderWithProvider(<App />);
     const input = screen.getByPlaceholderText('Добавь задачу');
